@@ -1,0 +1,88 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>UniEats</title>
+</head>
+<body>
+    
+
+<section id="header">
+    <div id="logoo"> 
+        <a href="homepage.html"  class="logo3"><img src="footer_images\logo.png" alt="" ></a>
+        <h1 class="logo" id="logoo" >UniEats</h1>
+    </div>
+    <div>
+        <ul id="navbar">
+            <li><a  href="homepage.html">Home</a></li>
+            <li><a  href="majeed.html">MAJEED HUTS</a></li>
+            <li><a  href="cartpage.html">CART</a></li>
+
+           
+            <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
+            <a href="#" id="close"><i class="far fa-times"></i></a>
+
+        </ul>
+    </div>
+    <div id="mobile">
+        <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+    </div>
+</section>
+<div class="sidenav">
+    <a href="#">Cart</a>
+    <a href="#">Menu</a>
+</div>
+<div class="food-container">
+    <div class="food-item" data-name="CHICKEN BIRYANI" data-image="food_images/biryani.jpg" data-description=" DELICIOUS CHICKEN BIRYANI WITH RAITA" data-price="300">
+        <h3>Majeed Huts</h3>
+        <img src="food_images/biryani.jpg" alt="BIRYANI">
+        <p><b>CHICKEN BIRYANI</b></p>
+        <button onclick="redirectToFoodDetails('CHICKEN BIRYANI', 'food_images/biryani.jpg', 'DELECIOUS CHICKEN BIRYANI WITH RAITA', 300)">Add to Cart</button>
+    </div>
+    
+    <div class="food-item" data-name="WHITE CHICKEN KARAHI" data-image="food_images/whitekorma.webp" data-description=" DELICIOUS CHICKEN WHITE KARAHI" data-price="250">
+        <h3>Majeed Huts</h3>
+        <img src="food_images/whitekorma.webp" alt="WHITE KARAHI">
+        <p><b>WHITE CHICKEN KARAHI</b></p>
+        <button onclick="redirectToFoodDetails('WHITE CHICKEN KARAHI', 'food_images/whitekorma.webp', 'DELECIOUS WHITE CHICKEN KARAHI', 300)">Add to Cart</button>
+    </div>
+    <div class="food-item" data-name=" CHICKEN KARAHI" data-image="food_images/chicken-karahi-3.jpg" data-description=" DELICIOUS CHICKEN  KARAHI" data-price="250">
+        <h3>Majeed Huts</h3>
+        <img src="food_images/chicken-karahi-3.jpg" alt="WHITE KARAHI">
+        <p><b> CHICKEN KARAHI</b></p>
+        <button onclick="redirectToFoodDetails(' CHICKEN KARAHI', 'food_images/chicken-karahi-3.jpg', 'DELECIOUS  CHICKEN KARAHI', 250)">Add to Cart</button>
+    </div>
+    <div class="food-item" data-name=" BEEF PLAO" data-image="food_images/beef plao.jpg" data-description=" FAMOUS BANNU BEEF PLAO" data-price="300">
+        <h3>Majeed Huts</h3>
+        <img src="food_images/beef plao.jpg" alt="BEEF PLAO">
+        <p><b> BEEF PLAO</b></p>
+        <button onclick="redirectToFoodDetails(' BEEF PLAO', 'food_images/beef plao.jpg', 'FAMOUS BANNU BEEF PLAO', 300)">Add to Cart</button>
+    </div>
+   
+    <div class="food-item" data-name="DAAL MASH" data-image="food_images\shahi daal.jpg" data-description="SPECIAL DAAL MASH" data-price="150">
+        <h3>Majeed Huts</h3>
+        <img src="food_images/daal mash.jpg" alt="DAAL MASH">
+        <p><b>DAAL MASH</b></p>
+        <button onclick="redirectToFoodDetails('DAAL MASH', 'food_images/daal mash.jpg', 'SPECIAL DAAL MASH', 150)">Add to Cart</button>
+    </div>
+    <div class="food-item" data-name="SALAD" data-image="food_images/salad.jpg" data-description="SPECIAL SALAD" data-price="80">
+        <h3>Majeed Huts</h3>
+        <img src="food_images/salad.jpg" alt="VEG SALAD">
+        <p><b>SALAD</b></p>
+        <button onclick="redirectToFoodDetails('SALAD', 'food_images/salad.jpg', 'SPECIAL SALAD', 150)">Add to Cart</button>
+    </div>
+    <div class="food-item" data-name="TANDORI ROTI" data-image="food_images/roti.jpg" data-description="TANDORI ROTI" data-price="20">
+        <h3>Majeed Huts</h3>
+        <img src="food_images/roti.jpg" alt="ROTI">
+        <p><b>TANDORI ROTI</b></p>
+        <button onclick="redirectToFoodDetails('TANDORI ROTI', 'food_images/roti.jpg', 'TANDORI ROTI', 20)">Add to Cart</button>
+    </div>
+  
+
+    <!-- Add more food items here -->
+    <!-- ... -->
+</div>
+</body>
+<script src="script.js"></script>
+<script src="data.js"></script>

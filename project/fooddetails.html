@@ -1,0 +1,211 @@
+<!-- fooddetails.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: beige;
+            color: brown;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: brown;
+            font-weight: bold;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .food-details {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #foodImage {
+            max-width: 30%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        #foodName {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        #foodDescription {
+            margin-bottom: 10px;
+        }
+
+        #foodPrice {
+            margin-bottom: 10px;
+        }
+
+        #halfPrice {
+            color: #FF5733; /* Orange color for half price */
+            font-weight: bold;
+        }
+
+        #quantity {
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        button {
+            padding: 8px 16px;
+            font-size: 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .available-huts {
+            margin-top: 20px;
+        }
+
+        .available-huts h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .hut-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hut-list li {
+            margin-bottom: 5px;
+        }
+    </style>
+    <title>Food Details</title>
+</head>
+<body>
+    <section id="header">
+        <div id="logoo"> 
+            <a href="homepage.html"  class="logo3"><img src="footer_images\logo.png" alt="" ></a>
+            <h1 class="logo" id="logoo" >UniEats</h1>
+        </div>
+        <div>
+            <ul id="navbar">
+                <li><a  href="homepage.html">Home</a></li>
+             
+                <li><a  href="cartpage.html">CART</a></li>
+    
+               
+                <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+    
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+    <div class="sidenav">
+        <a href="#">Cart</a>
+        <a href="#">Menu</a>
+    </div>
+
+    <div class="food-details">
+        <img id="foodImage" alt="Food Image">
+        <h2 id="foodName"></h2>
+        <p id="foodDescription"></p>
+        <p id="foodPrice"></p>
+        <span id="halfPrice"></span>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" value="1" min="1" max="10">
+        <div>
+            <input type="radio" id="halfPlate" name="plateSize" value="half" onclick="showHalfPrice()">
+            <label for="halfPlate">Half</label>
+            <input type="radio" id="fullPlate" name="plateSize" value="full">
+            <label for="fullPlate">Full </label>
+        </div>
+        <button onclick="addToCart()">Add to Cart</button>
+    </div>
+
+
+
+    <script src="script.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name');
+        const image = params.get('image');
+        const description = params.get('description');
+        const price = parseFloat(params.get('price'));
+        const restaurant = params.get('restaurant');
+        const source = params.get('source');
+
+        document.getElementById('foodImage').src = image;
+        document.getElementById('foodName').textContent = name;
+        document.getElementById('foodDescription').textContent = description;
+        document.getElementById('foodPrice').textContent = `Price: Rs${price.toFixed(2)}`;
+
+        function showHalfPrice() {
+            const halfPriceElement = document.getElementById('halfPrice');
+            const halfPlateRadio = document.getElementById('halfPlate');
+            const fullPlateRadio = document.getElementById('fullPlate');
+
+            if (halfPlateRadio.checked) {
+                const halfPrice = (price / 2).toFixed(2);
+                halfPriceElement.textContent = `(Half Price: Rs${halfPrice})`;
+            } else {
+                halfPriceElement.textContent = '';
+            }
+        }
+
+        function addToCart() {
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const plateSize = document.querySelector('input[name="plateSize"]:checked').value;
+            const adjustedPrice = (plateSize === 'half') ? price / 2 : price;
+
+            const cartItem = {
+                name: `${name} (${plateSize} plate)`,
+                price: adjustedPrice,
+                quantity: quantity,
+                restaurant: restaurant
+            };
+
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            cartItems.push(cartItem);
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            alert('Item added to cart!');
+        }
+
+        if (source === 'addToCartButton') {
+            // Additional actions for the "Add to Cart" button
+        } else {
+            // Additional actions for clicking a food item
+        }
+    </script>
+</body>
+</html>

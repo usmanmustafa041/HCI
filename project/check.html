@@ -1,0 +1,28 @@
+<!-- check.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Check Page</title>
+</head>
+<body>
+    <h2>Food Items</h2>
+    
+    <div class="food-container" id="foodContainer"></div>
+
+    <script src="script.js"></script>
+    <script>
+        // Example usage:
+        const foodContainer = document.getElementById('foodContainer');
+
+        const chickenKarahi = createFoodItem('CHICKEN KARAHI', 'chicken-karahi-3.jpg', 'Description of Chicken Karahi', 10.99);
+        foodContainer.appendChild(chickenKarahi);
+
+        // You can call createFoodItem for other food items
+        // ...
+    </script>
+</body>
+</html>

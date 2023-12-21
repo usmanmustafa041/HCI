@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-F7bN/KPDz1huyPCTWyH9N3wZnRqIhPwi0Uq3X9CAwPZYYLQ5Cjcm0PuXBV2FJGnj" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="styles.css">
+  
+    <title>UniEats</title>
+</head>
+<body>
+    <section id="header">
+        <div id="logoo"> 
+            <a href="homepage.html"  class="logo3"><img src="footer_images\logo.png" alt="" ></a>
+            <h1 class="logo" id="logoo" >UniEats</h1>
+        </div>
+        <div>
+            <ul id="navbar">
+                <li><a  href="homepage.html">Home</a></li>
+                <li><a href="cartpage.html">CART</a></li>
+                <li><a  href="aboutus.html">About</a></li>
+                
+                <li ><img src="footer_images/download.jpg" alt="Cart" id="cart-logo"></li>
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+    <div class="sidenav">
+        <a href="#">Cart</a>
+        <a href="#">Menu</a>
+    </div>
+    <h2><a href="restaurants.html"></a>RESTAURANTS</h2>
+    <div class="food-container">
+        <div class="food-item" data-name="Restaurant 1" data-image="path/to/image1.jpg" data-description="Description for Restaurant 1" data-price="10.99">
+            <h3>MAJEED HUTS</h3>
+            <img src="food_images/huts_pics/majeedhuts.jpg" alt="Restaurant 1">
+           
+            <a href="majeed.html"><button >ORDER FOOD</button></a>
+        </div>
+        <div class="food-item" data-name="CHEMISTRY HUTS" data-image="food_images\huts_pics\chemistry huts.jpg" data-description="" data-price="">
+            <h3>CHEMISTRY HUTS</h3>
+            <img src="food_images\huts_pics\chemistry huts.jpg" alt="Restaurant 1">
+           
+            <a href="chem_huts.html"><button >ORDER FOOD</button></a>
+        </div>
+        <!-- Add more restaurant items as needed -->
+    
+        <div class="food-item" data-name="Restaurant 1" data-image="path/to/image1.jpg" data-description="Description for Restaurant 1" data-price="10.99">
+            <h3>MFC</h3>
+            <img src="food_images/huts_pics/majeedhuts.jpg" alt="MFC">
+       
+            <a href="mfc.html"><button >ORDER FOOD</button></a>
+        </div>
+    </div>
+    <div class="swiffy-slider">
+        <ul class="slider-container">
+            <li><img src="footer_images/burger slider.jpg" style="max-width: 100%;height: auto;"></li>
+            <li><img src="footer_images/WhatsApp Image 2023-12-18 at 09.12.43_aa9ac87a.jpg" style="max-width: 100%;height: auto;"></li>
+            <li><img src="footer_images/chinese food.jpg" style="max-width: 100%;height: auto;"></li>
+        </ul>
+    
+        <button type="button" class="slider-nav"></button>
+        <button type="button" class="slider-nav slider-nav-next"></button>
+    
+        <div class="slider-indicators">
+            <button class="active"></button>
+            <button></button>
+            <button></button>
+        </div>
+    </div>
+    <main>
+       
+        <section class="restaurants">
+            <h2>MENU</h2>
+            <div class="food-container">
+                <div class="food-item" data-name="CHICKEN BIRYANI" data-image="food_images/biryani.jpg" data-description=" DELICIOUS CHICKEN BIRYANI WITH RAITA" data-price="300">
+                    <h3>Majeed Huts</h3>
+                    <img src="food_images/biryani.jpg" alt="BIRYANI">
+                    <p><b>CHICKEN BIRYANI</b></p>
+                    <button onclick="redirectToFoodDetails('CHICKEN BIRYANI', 'food_images/biryani.jpg', 'DELECIOUS CHICKEN BIRYANI WITH RAITA', 300)">Add to Cart</button>
+                </div>
+                
+                <div class="food-item" data-name="WHITE CHICKEN KARAHI" data-image="food_images/whitekorma.webp" data-description=" DELICIOUS CHICKEN WHITE KARAHI" data-price="250">
+                    <h3>Majeed Huts</h3>
+                    <img src="food_images/whitekorma.webp" alt="WHITE KARAHI">
+                    <p><b>WHITE CHICKEN KARAHI</b></p>
+                    <button onclick="redirectToFoodDetails('WHITE CHICKEN KARAHI', 'food_images/whitekorma.webp', 'DELECIOUS WHITE CHICKEN KARAHI', 300)">Add to Cart</button>
+                </div>
+                <div class="food-item" data-name=" CHICKEN KARAHI" data-image="food_images/chicken-karahi-3.jpg" data-description=" DELICIOUS CHICKEN  KARAHI" data-price="250">
+                    <h3>Majeed Huts</h3>
+                    <img src="food_images/chicken-karahi-3.jpg" alt="WHITE KARAHI">
+                    <p><b> CHICKEN KARAHI</b></p>
+                    <button onclick="redirectToFoodDetails(' CHICKEN KARAHI', 'food_images/chicken-karahi-3.jpg', 'DELECIOUS  CHICKEN KARAHI', 250)">Add to Cart</button>
+                </div>
+                <div class="food-item" data-name=" BEEF PLAO" data-image="food_images/beef plao.jpg" data-description=" FAMOUS BANNU BEEF PLAO" data-price="300">
+                    <h3>Majeed Huts</h3>
+                    <img src="food_images/beef plao.jpg" alt="BEEF PLAO">
+                    <p><b> BEEF PLAO</b></p>
+                    <button onclick="redirectToFoodDetails(' BEEF PLAO', 'food_images/beef plao.jpg', 'FAMOUS BANNU BEEF PLAO', 300)">Add to Cart</button>
+                </div>
+               
+                <div class="food-item" data-name="DAAL MASH" data-image="food_images\shahi daal.jpg" data-description="SPECIAL DAAL MASH" data-price="150">
+                    <h3>Majeed Huts</h3>
+                    <img src="food_images/daal mash.jpg" alt="DAAL MASH">
+                    <p><b>DAAL MASH</b></p>
+                    <button onclick="redirectToFoodDetails('DAAL MASH', 'food_images/daal mash.jpg', 'SPECIAL DAAL MASH', 150)">Add to Cart</button>
+                </div>
+                <div class="food-item" data-name="SALAD" data-image="food_images/salad.jpg" data-description="SPECIAL SALAD" data-price="80">
+                    <h3>Majeed Huts</h3>
+                    <img src="food_images/salad.jpg" alt="VEG SALAD">
+                    <p><b>SALAD</b></p>
+                    <button onclick="redirectToFoodDetails('SALAD', 'food_images/salad.jpg', 'SPECIAL SALAD', 150)">Add to Cart</button>
+                </div>
+                <div class="food-item" data-name="TANDORI ROTI" data-image="food_images/roti.jpg" data-description="TANDORI ROTI" data-price="20">
+                    <h3>Majeed Huts</h3>
+                    <img src="food_images/roti.jpg" alt="ROTI">
+                    <p><b>TANDORI ROTI</b></p>
+                    <button onclick="redirectToFoodDetails('TANDORI ROTI', 'food_images/roti.jpg', 'TANDORI ROTI', 20)">Add to Cart</button>
+                </div>
+                <div class="food-item" data-name="ZINGER BURGER" data-image="food_images/BURGER.jpg" data-description="ZINGER BURGER" data-price="400">
+                    <h3>CHEMISTRY HUTS</h3>
+                    <img src="food_images/BURGER.jpg" alt="ZINGER">
+                    <p><b>ZINGER BURGER</b></p>
+                    <button onclick="redirectToFoodDetails('ZINGER BURGER', 'food_images/BURGER.jpg', 'ZINGER BURGER', 400)">Add to Cart</button>
+                </div>
+                <div class="food-item" data-name="BANANA MILK SHAKE" data-image="food_images/images.jpg" data-description="BANANA MILK SHAKE" data-price="120">
+                    <h3>MFC</h3>
+                    <img src="food_images/images.jpg" alt="BANANA SHAKE">
+                    <p><b>BANANA MILK SHAKE</b></p>
+                    <button onclick="redirectToFoodDetails('BANANA MILK SHAKE', 'food_images/images.jpg', 'BANANA SHAKE', 120)">Add to Cart</button>
+                </div>
+                <div class="food-item" data-name="COFFEE" data-image="food_images/COFFEE.jpg" data-description="HOT COFFEE" data-price="120">
+                    <h3>MFC</h3>
+                    <img src="food_images/COFFEE.jpg" alt="COFFEE">
+                    <p><b>HOT COFFEE</b></p>
+                    <button onclick="redirectToFoodDetails('HOT COFFEE', 'food_images/COFFEE.jpg', 'HOT COFFEE', 120)">Add to Cart</button>
+                </div>
+                <div class="food-item" data-name="DAAL CHAVAL" data-image="food_images/DAALCHAVAL.jpg" data-description="DAAL CHAVAL" data-price="150">
+                    <h3>MFC</h3>
+                    <img src="food_images/DAALCHAVAL.jpg" alt="DAAL CHAVAL">
+                    <p><b>DAAL CHAVAL</b></p>
+                    <button onclick="redirectToFoodDetails('DAAL CHAVAL', 'food_images/DAALCHAVAL.jpg', 'DAAL CHAVAL', 150)">Add to Cart</button>
+                </div>
+
+                <!-- Add more food items here -->
+                <!-- ... -->
+            </div>
+        </section>
+
+     
+        <section id="newsletter" class="section-p1 section-m1">
+            <div class="newstext">
+                <h4>Signup For Newsletters</h4>
+                <p> Get E-mail updates for our latest shop and <span>special offers</span>.</p>
+                
+            </div>
+            <div class="form">
+                <input type="text " placeholder=" Your E-mail Address">
+                <button class="normal">Sign Up</button>
+            </div>
+           </section>
+           
+        
+        <footer class="section-p1">
+            <div class="col">
+                <div id="logoo"> 
+                    <a href="#"  class="logo3"><img src="img/products/logo3.jpg" alt="" ></a>
+                    <h1 class="logo" id="logoo" >UniEats</h1>
+                </div>
+                <h4>Contact</h4>
+                <p><strong>Address:</strong> Qau Islamabad</p>
+                <p><strong>Phone:</strong> 0300 1234567</p>
+                <p><strong>Hours:</strong> 10:00 - 18:00 , Mon - Sat</p>
+                <div class="follow">
+                    <h4>Follow Us</h4>
+                    <div class="icon">
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-pinterest-p"></i>
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h4> About </h4>
+                <a href="#">About Us</a>
+                <a href="pro_mem.html">PROJECT MEMBERS</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Contact Us</a>
+            
+            </div>
+            <div class="col">
+                <h4> My Account </h4>
+                <a href="#">Sign In</a>
+                <a href="cartpage.html">View Cart</a>
+                <a href="#">My Wishlist</a>
+                <a href="#">Track My Order</a>
+                <a href="#">Help</a>
+            
+            </div>
+           <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div clas="row">
+                <img src="footer_images\image_pay_apple.jpg" alt="">
+                <img src="footer_images\image_pay_play.jpg" alt="">   
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="footer_images\image_payment.jpg" alt="">
+           </div>
+           <div class="copyright">
+            <p><i class="fa-regular fa-copyright" style="color: #9da0a4;"></i> 2023, CS QAU <B>ALL RIGHT RESERVED</B></p>
+           </div>
+           </footer>
+
+        
+    </main>
+    
+    <script src="script.js"></script>
+    <script src="data.js"></script>
+    <script>
+
+    </script>
+ 
+</body>
+</html>

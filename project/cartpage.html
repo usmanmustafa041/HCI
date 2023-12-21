@@ -1,0 +1,280 @@
+<!-- cartpage.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        .cart-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item {
+            display: flex;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .cart-item p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .total-bill {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        .clear-cart-button,
+        .place-order-button,
+        .payment-options button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            margin: 10px 0;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .clear-cart-button {
+            background-color: #ff5555;
+        }
+
+        .clear-cart-button:hover {
+            background-color: #ff3333;
+        }
+
+        .place-order-button,
+        .payment-options button {
+            background-color: #4CAF50;
+        }
+
+        .place-order-button:hover,
+        .payment-options button:hover {
+            background-color: #45a049;
+        }
+
+        .payment-options {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .payment-options label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        #orderConfirmation {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+    </style>
+    <title>Cart Page</title>
+</head>
+<body>
+    <section id="header">
+        <div id="logoo"> 
+            <a href="homepage.html"  class="logo3"><img src="footer_images\logo.png" alt="" ></a>
+            <h1 class="logo" id="logoo" >UniEats</h1>
+        </div>
+        <div>
+            <ul id="navbar">
+                <li><a  href="homepage.html">Home</a></li>
+             
+                <li><a  href="cartpage.html">CART</a></li>
+    
+               
+                <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+    
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+    <div class="sidenav">
+        <a href="#">Cart</a>
+        <a href="#">Menu</a>
+    </div>
+
+    <div class="cart-container">
+        <h2>Your Cart</h2>
+
+        <!-- Cart items will be displayed here -->
+        <div class="cart-details" id="cartDetails"></div>
+
+        <p class="total-bill">Total Bill: Rs0.00</p>
+
+        <button class="clear-cart-button" onclick="clearCart()">Clear Cart</button>
+
+        <button class="place-order-button" onclick="placeOrder()">Place Order</button>
+
+        <div class="payment-options" id="paymentOptions">
+            <label>
+                <input type="radio" name="paymentOption" value="cod">
+                Cash on Delivery (COD)
+            </label>
+            <label>
+                <input type="radio" name="paymentOption" value="jazzcash">
+                JazzCash
+            </label>
+            <label>
+                <input type="radio" name="paymentOption" value="easypaisa">
+                EasyPaisa
+            </label>
+            <label>
+                <input type="radio" name="paymentOption" value="bank">
+                Bank Payment
+            </label>
+            <button onclick="continueToPayment()">Continue</button>
+        </div>
+
+        <div id="orderConfirmation">
+            <p>Thank you for placing your order! Your order has been confirmed.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Function to calculate and display the total bill
+        function displayTotalBill() {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalBillElement = document.querySelector('.total-bill');
+
+            // Calculate the total bill
+            const totalBill = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+            // Display the total bill
+            totalBillElement.textContent = `Total Bill: Rs${totalBill.toFixed(2)}`;
+        }
+
+        // Function to place an order
+        function placeOrder() {
+            const paymentOptionsElement = document.getElementById('paymentOptions');
+            const orderConfirmationElement = document.getElementById('orderConfirmation');
+
+            // Hide payment options and show order confirmation
+            paymentOptionsElement.style.display = 'none';
+            orderConfirmationElement.style.display = 'block';
+        }
+
+        // Function to continue to payment options
+        function continueToPayment() {
+            const paymentOptionsElement = document.getElementById('paymentOptions');
+            paymentOptionsElement.style.display = 'block';
+        }
+
+        // Function to display cart items
+        function displayCart() {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartDetailsElement = document.getElementById('cartDetails');
+
+            // Clear existing content
+            cartDetailsElement.innerHTML = '';
+
+            // Display each cart item
+            cartItems.forEach((item, index) => {
+                const cartItemElement = document.createElement('div');
+                cartItemElement.classList.add('cart-item');
+
+                const itemImageElement = document.createElement('img');
+                itemImageElement.src = item.image;
+                itemImageElement.alt = item.name;
+
+                const itemDetailsElement = document.createElement('div');
+                itemDetailsElement.classList.add('cart-item-details');
+
+                const itemNameElement = document.createElement('h3');
+                itemNameElement.textContent = item.name;
+
+                const itemPriceElement = document.createElement('p');
+                itemPriceElement.textContent = `Price: Rs${item.price.toFixed(2)}`;
+
+                const itemQuantityElement = document.createElement('p');
+                itemQuantityElement.textContent = `Quantity: ${item.quantity}`;
+
+                const itemRestaurantElement = document.createElement('p');
+                itemRestaurantElement.textContent = `Restaurant: ${item.restaurant}`;
+
+                // Append elements to the cart item container
+                itemDetailsElement.appendChild(itemNameElement);
+                itemDetailsElement.appendChild(itemPriceElement);
+                itemDetailsElement.appendChild(itemQuantityElement);
+                itemDetailsElement.appendChild(itemRestaurantElement);
+
+          
+                cartItemElement.appendChild(itemDetailsElement);
+
+                cartDetailsElement.appendChild(cartItemElement);
+            });
+
+            // Display the total bill
+            displayTotalBill();
+        }
+
+        // Function to clear the cart
+        function clearCart() {
+            localStorage.removeItem('cart');
+            displayCart();
+        }
+
+        // Call the displayCart function when the page loads
+        displayCart();
+    </script>
+</body>
+</html>
